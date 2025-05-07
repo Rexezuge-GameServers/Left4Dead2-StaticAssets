@@ -11,3 +11,5 @@ RUN rm /L4D2Content/left4dead2/addons/readme.txt
 FROM scratch
 
 COPY --from=builder /L4D2Content /L4D2Content
+
+COPY --from=builder /SteamCMD /SteamCMD
