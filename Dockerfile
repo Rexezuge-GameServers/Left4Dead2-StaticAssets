@@ -8,6 +8,8 @@ RUN /.Entrypoint.sh /.Command.sh
 
 RUN rm /L4D2Content/left4dead2/addons/readme.txt
 
+RUN rm /L4D2Content/dedicatedserver_readme.txt
+
 FROM scratch
 
 COPY --from=builder /L4D2Content /L4D2Content
