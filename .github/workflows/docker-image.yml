@@ -41,8 +41,13 @@ jobs:
       run: |
         docker build . \
           --file Dockerfile \
+          --build-arg STEAM_USERNAME="$STEAM_USERNAME" \
+          --build-arg STEAM_PASSWORD="$STEAM_PASSWORD" \
           --tag ${{ steps.vars.outputs.image_name }}:${{ steps.vars.outputs.tag }} \
           --tag ${{ steps.vars.outputs.image_name }}:latest
+      env:
+          STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
+          STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
 
     - name: Push Docker image to Docker Hub
       run: |
